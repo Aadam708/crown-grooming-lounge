@@ -157,31 +157,32 @@ const Services = () => {
           </motion.div>
 
           {/* Specials Section */}
-          <motion.div
-            className="p-4 border border-gray-700 rounded-lg w-full sm:w-80"
-            variants={fadeUp}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-xl font-semibold capitalize mb-3">Specials</h2>
-            <div className="grid gap-4">
-              {Object.entries(specials).map(([specialName, { price, details }]) => (
-                <motion.div
-                  key={specialName}
-                  className="p-4 bg-gray-800 rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
-                  variants={fadeUp}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-lg font-semibold">{specialName}</span>
-                    <span className="font-bold">£{price}</span>
-                  </div>
-                  <div className="text-sm bg-red-600 p-2 rounded text-white">
-                    {details}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+<motion.div
+  className="p-4 border border-gray-700 rounded-lg w-full sm:w-[35rem]" // Adjusted width
+  variants={fadeUp}
+  transition={{ duration: 0.6 }}
+>
+  <h2 className="text-xl font-semibold capitalize mb-3">Specials</h2>
+  <div className="grid gap-4">
+    {Object.entries(specials).map(([specialName, { price, details }]) => (
+      <motion.div
+        key={specialName}
+        className="p-4 bg-gray-800 rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
+        variants={fadeUp}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="flex justify-between items-center mb-2">
+          <span className="text-lg font-semibold">{specialName}</span>
+          <span className="font-bold">£{price}</span>
+        </div>
+        <div className="text-sm bg-red-600 p-2 rounded text-white">
+          {details}
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</motion.div>
+
         </div>
       </motion.div>
     </section>
