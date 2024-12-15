@@ -43,9 +43,9 @@ const Contact = () => {
             <FaClock className="text-red-600 text-3xl mr-4" />
             <div>
               <h3 className="text-2xl font-semibold">Hours</h3>
-              <p>Monday - Saturday: 9 am–6:30 pm<br />
-                Sunday: 10 am–4 pm
-              </p>
+              <p>Monday - Saturday: 9&#8201;am&ndash;6:30&#8201;pm<br />
+   Sunday: 10&#8201;am&ndash;4&#8201;pm</p>
+
             </div>
           </div>
         </div>

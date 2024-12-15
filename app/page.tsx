@@ -41,8 +41,8 @@ export default function Home() {
 
       {/* Hero Section */}
       <div className="flex flex-col justify-center items-center px-5 mt-16 space-y-5 md:mt-32 text-center">
-        <h1 className="text-white text-2xl md:text-3xl">The Future of Men's Grooming</h1>
-        <Link href="#services">
+      <h1 className="text-white text-2xl md:text-3xl">The Future of Men&#39;s Grooming</h1>
+      <Link href="#services">
           <button className="text-white border border-white rounded-lg px-4 py-2 hover:bg-red-600 hover:border-red-600 transition-colors duration-300">
             Find Out More
           </button>
