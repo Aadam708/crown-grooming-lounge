@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { motion } from "framer-motion";
 import { FaPhone, FaMapMarkerAlt, FaClock, FaInstagram } from "react-icons/fa";
