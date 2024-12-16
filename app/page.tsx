@@ -1,12 +1,18 @@
 "use client";
 
+
+import dynamic from 'next/dynamic';
+
+
 import Link from "next/link";
-import Gallery from "./components/gallery"; // Adjust the path based on your file structure
+// import Gallery from "./components/gallery"; // Adjust the path based on your file structure
 import Image from "next/image";
-import Services from "./components/services";
-import Contact from "./components/contact";
+// import Services from "./components/services";
+// import Contact from "./components/contact";
 
-
+const Gallery = dynamic(() => import("./components/gallery"), { ssr: false });
+const Services = dynamic(() => import("./components/services"), { ssr: false });
+const Contact = dynamic(() => import("./components/contact"), { ssr: false });
 export default function Home() {
 
   console.log();
