@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Pacifico } from 'next/font/google';
-import Haircuts from './components/gallery'; // Adjust the path based on your file structure
+import Gallery from './components/gallery'; // Adjust the path based on your file structure
 import Image from 'next/image';
 import Services from "./components/services";
 import Contact from "./components/contact";
@@ -60,7 +60,7 @@ export default function Home() {
 
       {/* Gallery Section */}
       <div className="flex flex-col items-center px-5 md:px-0">
-        <Haircuts />
+        <Gallery />
       </div>
       <div className="h-screen"></div>
 

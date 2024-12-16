@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from 'next/image';
 
-const Services = () => {
+const Gallery = () => {
   const images = [
     { id: 1, title: "Skin Fade", image: "/images/img1.jpg" },
     { id: 2, title: "Crew Cut", image: "/images/img2.jpg" },
@@ -71,4 +71,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Gallery;
