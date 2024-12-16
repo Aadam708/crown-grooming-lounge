@@ -1,5 +1,8 @@
 import React from "react";
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+// Dynamically import motion.div from framer-motion with SSR disabled
+const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.div), { ssr: false });
 
 type ServiceDetails = {
   price: number;
@@ -75,10 +78,7 @@ const Services = () => {
     const details = isDetailed ? serviceDetails.details : null;
 
     return (
-      <li
-        key={serviceName}
-        className="flex items-center justify-between mb-2 relative group"
-      >
+      <li key={serviceName} className="flex items-center justify-between mb-2 relative group">
         <span className="flex items-center">
           {serviceName}
           {details && (
@@ -97,94 +97,84 @@ const Services = () => {
     );
   };
 
-
   return (
     <section id="services" className="p-6">
-      <motion.div
+      <MotionDiv
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         className="bg-black text-white border-4 border-red-600 rounded-lg p-6"
       >
-        <motion.h1
+        <MotionDiv
           className="text-3xl font-bold text-center mb-6"
           variants={fadeUp}
           transition={{ duration: 0.6 }}
         >
           Service Menu
-        </motion.h1>
+        </MotionDiv>
         <div className="flex flex-wrap justify-center gap-6">
           {/* Cuts Section */}
-          <motion.div
+          <MotionDiv
             className="p-4 border border-gray-700 rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg hover:border-red-600 w-full sm:w-72"
             variants={fadeUp}
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-xl font-semibold capitalize mb-3">Cuts</h2>
             <ul>
-              {Object.entries(cuts).map(([name, details]) =>
-                renderService(name, details)
-              )}
+              {Object.entries(cuts).map(([name, details]) => renderService(name, details))}
             </ul>
-          </motion.div>
+          </MotionDiv>
 
           {/* Shave Section */}
-          <motion.div
+          <MotionDiv
             className="p-4 border border-gray-700 rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg hover:border-red-600 w-full sm:w-72"
             variants={fadeUp}
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-xl font-semibold capitalize mb-3">Shave</h2>
             <ul>
-              {Object.entries(shave).map(([name, details]) =>
-                renderService(name, details)
-              )}
+              {Object.entries(shave).map(([name, details]) => renderService(name, details))}
             </ul>
-          </motion.div>
+          </MotionDiv>
 
           {/* Extras Section */}
-          <motion.div
+          <MotionDiv
             className="p-4 border border-gray-700 rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg hover:border-red-600 w-full sm:w-72"
             variants={fadeUp}
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-xl font-semibold capitalize mb-3">Extras</h2>
             <ul>
-              {Object.entries(extras).map(([name, price]) =>
-                renderService(name, price)
-              )}
+              {Object.entries(extras).map(([name, price]) => renderService(name, price))}
             </ul>
-          </motion.div>
+          </MotionDiv>
 
           {/* Specials Section */}
-<motion.div
-  className="p-4 border border-gray-700 rounded-lg w-full sm:w-[35rem]" // Adjusted width
-  variants={fadeUp}
-  transition={{ duration: 0.6 }}
->
-  <h2 className="text-xl font-semibold capitalize mb-3">Specials</h2>
-  <div className="grid gap-4">
-    {Object.entries(specials).map(([specialName, { price, details }]) => (
-      <motion.div
-        key={specialName}
-        className="p-4 bg-gray-800 rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
-        variants={fadeUp}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-lg font-semibold">{specialName}</span>
-          <span className="font-bold">£{price}</span>
+          <MotionDiv
+            className="p-4 border border-gray-700 rounded-lg w-full sm:w-[35rem]" // Adjusted width
+            variants={fadeUp}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-xl font-semibold capitalize mb-3">Specials</h2>
+            <div className="grid gap-4">
+              {Object.entries(specials).map(([specialName, { price, details }]) => (
+                <MotionDiv
+                  key={specialName}
+                  className="p-4 bg-gray-800 rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
+                  variants={fadeUp}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-lg font-semibold">{specialName}</span>
+                    <span className="font-bold">£{price}</span>
+                  </div>
+                  <div className="text-sm bg-red-600 p-2 rounded text-white">{details}</div>
+                </MotionDiv>
+              ))}
+            </div>
+          </MotionDiv>
         </div>
-        <div className="text-sm bg-red-600 p-2 rounded text-white">
-          {details}
-        </div>
-      </motion.div>
-    ))}
-  </div>
-</motion.div>
-
-        </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 };

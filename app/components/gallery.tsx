@@ -1,7 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+
+// Dynamically import motion.div from framer-motion with SSR disabled
+const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.div), { ssr: false });
 
 const Gallery = () => {
   const images = [
@@ -19,7 +22,7 @@ const Gallery = () => {
 
   return (
     <section id="gallery" className="py-16 px-8 bg-black">
-      <motion.div
+      <MotionDiv
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -30,7 +33,7 @@ const Gallery = () => {
         <div className="grid grid-cols-3 gap-6 justify-center">
           {/* Top Row - 3 Images */}
           {images.slice(0, 3).map((image) => (
-            <motion.div
+            <MotionDiv
               key={image.id}
               className="relative w-full h-full overflow-hidden rounded-lg"
               variants={fadeUp}
@@ -43,14 +46,14 @@ const Gallery = () => {
                 height={500}
                 className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
               />
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
 
         <div className="grid grid-cols-2 gap-6 justify-center mt-6">
           {/* Bottom Row - 2 Images */}
           {images.slice(3, 5).map((image) => (
-            <motion.div
+            <MotionDiv
               key={image.id}
               className="relative w-full h-full overflow-hidden rounded-lg"
               variants={fadeUp}
@@ -63,10 +66,10 @@ const Gallery = () => {
                 height={500}
                 className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
               />
-            </motion.div>
+            </MotionDiv>
           ))}
         </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 };

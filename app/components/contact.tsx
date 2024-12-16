@@ -1,12 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { FaPhone, FaMapMarkerAlt, FaClock, FaInstagram } from "react-icons/fa";
+
+// Dynamically import motion.div from framer-motion with SSR disabled
+const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.div), { ssr: false });
 
 const Contact = () => {
   return (
     <section id="contact" className="py-16 px-8 bg-gray-900 text-white">
-      <motion.div
+      <MotionDiv
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -43,9 +46,8 @@ const Contact = () => {
             <FaClock className="text-red-600 text-3xl mr-4" />
             <div>
               <h3 className="text-2xl font-semibold">Hours</h3>
-              <p>Monday - Saturday: 9&#8201;am&ndash;6:30&#8201;pm<br />
-   Sunday: 10&#8201;am&ndash;4&#8201;pm</p>
-
+              <p>Monday - Saturday: 9 am–6:30 pm<br />
+   Sunday: 10 am–4 pm</p>
             </div>
           </div>
         </div>
@@ -89,7 +91,7 @@ const Contact = () => {
             allowFullScreen
           ></iframe>
         </div>
-      </motion.div>
+      </MotionDiv>
     </section>
   );
 };
