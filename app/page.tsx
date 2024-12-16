@@ -1,19 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Pacifico } from "next/font/google";
 import Gallery from "./components/gallery"; // Adjust the path based on your file structure
 import Image from "next/image";
 import Services from "./components/services";
 import Contact from "./components/contact";
 
-const pacifico = Pacifico({ subsets: ['latin'], weight: '400' });
 
 export default function Home() {
 
-  // console.log(Services);
-  // console.log(Gallery);
-  // console.log(Contact);
+  console.log();
+  console.log(Gallery);
+  console.log(Contact);
 
   return (
     <main className="relative min-h-screen bg-[url('https://img.freepik.com/free-vector/black-background-geometric-gradient-design_677411-2886.jpg?semt=ais_hybrid')] bg-cover bg-center">
