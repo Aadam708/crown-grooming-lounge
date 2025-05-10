@@ -56,7 +56,7 @@ const Contact = () => {
         <div className="flex items-center justify-center mb-6">
           <FaInstagram className="text-red-600 text-3xl mr-4" />
           <a
-            href="https://www.instagram.com/thecrowngrooming/p/C-K8OxSNDSv/"
+            href="https://www.instagram.com/thecrowngrooming"
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl font-semibold hover:text-red-400 transition-colors"

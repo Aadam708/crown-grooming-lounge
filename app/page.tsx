@@ -15,12 +15,11 @@ const Services = dynamic(() => import("./components/services"), { ssr: false });
 const Contact = dynamic(() => import("./components/contact"), { ssr: false });
 export default function Home() {
 
-  console.log();
-  console.log(Gallery);
-  console.log(Contact);
+  const mainImage = '/images/crown_hall.jpg';
 
   return (
-    <main className="relative min-h-screen bg-[url('https://img.freepik.com/free-vector/black-background-geometric-gradient-design_677411-2886.jpg?semt=ais_hybrid')] bg-cover bg-center">
+    <main className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${mainImage})` }}>
+      <div className="absolute inset-0 bg-black opacity-50"></div>
       {/* Navbar */}
       <div className="relative z-10 flex justify-between items-center p-5">
         {/* Logo */}
@@ -45,13 +44,17 @@ export default function Home() {
           <Link href="#contact" className="text-white text-sm md:text-base hover:text-red-500 transition-colors duration-300">
             Contact
           </Link>
+
+          <Link href="/VirtualTour" className="text-white text-sm md:text-base hover:text-red-500 transition-colors duration-300">
+            Virtual Tour
+          </Link>
         </div>
       </div>
 
       {/* Hero Section */}
-      <div className="flex flex-col justify-center items-center px-5 mt-16 space-y-5 md:mt-32 text-center">
-      <h1 className="text-white text-2xl md:text-3xl">The Future of Men&#39;s Grooming</h1>
-      <Link href="#services">
+      <div className="relative z-10 flex flex-col justify-center items-center px-5 mt-16 space-y-5 md:mt-32 text-center">
+        <h1 className="text-white text-2xl md:text-3xl">The Future of Men&#39;s Grooming</h1>
+        <Link href="#services">
           <button className="text-white border border-white rounded-lg px-4 py-2 hover:bg-red-600 hover:border-red-600 transition-colors duration-300">
             Find Out More
           </button>
@@ -62,19 +65,19 @@ export default function Home() {
       <div className="h-screen"></div>
 
       {/* Services Section */}
-      <div className="flex flex-col items-center px-5 md:px-0">
+      <div className="relative z-10 flex flex-col items-center px-5 md:px-0">
         <Services />
       </div>
       <div className="h-screen"></div>
 
       {/* Gallery Section */}
-      <div className="flex flex-col items-center px-5 md:px-0">
+      <div className="relative z-10 flex flex-col items-center px-5 md:px-0">
         <Gallery />
       </div>
       <div className="h-screen"></div>
 
       {/* Contact Section */}
-      <div className="flex flex-col items-center px-5 md:px-0">
+      <div className="relative z-10 flex flex-col items-center px-5 md:px-0">
         <Contact />
       </div>
     </main>
